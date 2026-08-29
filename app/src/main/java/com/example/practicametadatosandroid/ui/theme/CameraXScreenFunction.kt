@@ -134,7 +134,7 @@ fun CameraXScreenFunction(viewModel: MainViewModel) {
                     contentDescription = "Cambio de camara"
                 )
             }
-            //we add a row to organised the UI
+            //we add a row to  the UI
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -189,6 +189,8 @@ fun takePhoto(
             override fun onCaptureSuccess(image: ImageProxy) {
                 super.onCaptureSuccess(image)
 
+                //in this section we call the function to save the picture
+                val opcionesSalida = savePicturePrivateFolder(context)
 
                 val bufferImageDta = image.planes[0].buffer
                 val bytes = ByteArray(bufferImageDta.remaining())
@@ -225,9 +227,11 @@ fun takePhoto(
                 //Once the photo has been taken ww convert the imege to bitmap is order to be able to show it
                 onPhotoTaken(
                     PhotoInfo(
+                        id_photo = 1,
                         bitmap = image.toBitmap(),
                         dateTaken = dateTaken,
                         orientation = orientation,
+                        //Verificar ango y largo
                         dimensions = "(W: ${width}, H:${height})px"
                     )
                 )

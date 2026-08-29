@@ -1,6 +1,9 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.google.gms.google.services)
+
+
 }
 
 android {
@@ -36,9 +39,17 @@ android {
 }
 
 
+fun kapt(string: String) {}
+
 dependencies {
+    // Import the BoM for the Firebase platform
+    implementation(platform("com.google.firebase:firebase-bom:34.18.0"))
+    implementation("com.google.firebase:firebase-auth")
     implementation("androidx.biometric:biometric:1.1.0")
     implementation(libs.androidx.compose.foundation.layout)
+    implementation(libs.androidx.compose.ui.text)
+    implementation(libs.androidx.credentials)
+    implementation(libs.androidx.credentials.play.services.auth)
     implementation(libs.androidx.exifinterface)
     implementation(libs.androidx.material.icons.extended)
     implementation(platform(libs.androidx.compose.bom))
@@ -52,6 +63,7 @@ dependencies {
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.material3)
     implementation(libs.androidx.tv.material)
+    implementation(libs.googleid)
     testImplementation(libs.junit)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
@@ -60,6 +72,8 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.test.manifest)
     debugImplementation(libs.androidx.compose.ui.tooling)
 
+
+    // Declare the dependencies for the desired Firebase products without specifying versions
 
     val cameraxVersion = "1.4.2"
 
@@ -73,4 +87,24 @@ dependencies {
 
     // For permission handling (optional but recommended)
     implementation("com.google.accompanist:accompanist-permissions:0.33.2-alpha")
+
+    val roomVersion = "2.6.1"
+    implementation("androidx.room:room-runtime:$roomVersion")
+    implementation("androidx.room:room-ktx:$roomVersion")
+    kapt("androidx.room:room-compiler:$roomVersion")
+
+    // Retrofit & Gson (API GET/POST)
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:3.0.0")
+
+    // Cargar imágenes con Coil en Compose
+    implementation("io.coil-kt:coil-compose:2.6.0")
+
+    // Retrofit & Gson (API GET/POST)
+    implementation("com.squareup.retrofit2:retrofit:3.0.0")
+    implementation("com.squareup.retrofit2:converter-gson:3.0.0")
+
+    // Cargar imágenes con Coil en Compose
+    implementation("io.coil-kt:coil-compose:2.7.0")
+    
 }

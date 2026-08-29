@@ -64,8 +64,11 @@ import java.io.ByteArrayInputStream
 @OptIn(ExperimentalMaterial3Api::class)
 class MainActivity : FragmentActivity() {
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+
 
         setContent {
             PracticaMetadatosAndroidTheme {
@@ -74,9 +77,11 @@ class MainActivity : FragmentActivity() {
                     color = androidx.compose.material3.MaterialTheme.colorScheme.background
                 ) {
                     var autenticadoUser by remember { mutableStateOf(false) }
+                    var showRegister by remember { mutableStateOf(false) }
 
                     // Renderizado condicional estricto
                     if (!autenticadoUser) {
+
                         LoginScreen(
                             onAuthenticate = {
                                 try {
@@ -101,22 +106,23 @@ class MainActivity : FragmentActivity() {
                                         "Error biométrico en emulador. Accediendo...",
                                         Toast.LENGTH_SHORT
                                     ).show()
-                                    autenticadoUser = true
+
                                 }
                             }
                         )
+
+
                     } else {
                         // CameraX SOLO se carga cuando autenticadoUser es true
                         val viewModelF = viewModel<MainViewModel>()
                         CameraXScreenFunction(viewModelF)
                     }
+
                 }
             }
         }
     }
 }
-
-
 
 
 

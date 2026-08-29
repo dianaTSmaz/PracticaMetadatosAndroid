@@ -17,7 +17,7 @@ import androidx.compose.ui.unit.dp
 
 
 @Composable
-fun LoginScreen(
+fun LoginScreenOld(
     onAuthenticate : () -> Unit
 ){
     //Add this column to organize the UI elements in the login page
