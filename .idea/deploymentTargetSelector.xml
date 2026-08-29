@@ -4,7 +4,7 @@
     <selectionStates>
       <SelectionState runConfigName="app">
         <option name="selectionMode" value="DROPDOWN" />
-        <DropdownSelection timestamp="2026-08-26T07:04:39.207952600Z">
+        <DropdownSelection timestamp="2026-08-29T21:00:07.147022700Z">
           <Target type="DEFAULT_BOOT">
             <handle>
               <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\diana\.android\avd\Pixel_10a.avd" />
@@ -15,10 +15,10 @@
       </SelectionState>
       <SelectionState runConfigName="MainActivity">
         <option name="selectionMode" value="DROPDOWN" />
-        <DropdownSelection timestamp="2026-08-22T10:10:21.106401800Z">
+        <DropdownSelection timestamp="2026-08-29T20:47:21.133385900Z">
           <Target type="DEFAULT_BOOT">
             <handle>
-              <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\diana\.android\avd\testJava.avd" />
+              <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\diana\.android\avd\Pixel_10a.avd" />
             </handle>
           </Target>
         </DropdownSelection>
